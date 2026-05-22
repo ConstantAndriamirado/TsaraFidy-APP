@@ -82,7 +82,10 @@ export default function Sidebar({ locale }: SidebarProps) {
       <nav className="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
         {navItems.map((item) => {
           const Icon = item.icon;
-          const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
+          const isHome = item.href === `/${locale}/dashboard`
+          const isActive = isHome
+            ? pathname === item.href
+            : pathname === item.href || pathname.startsWith(item.href + '/')
 
           return (
             <Link

@@ -15,7 +15,7 @@ export default function DashboardStats() {
     refreshInterval: 5000, // Refresh every 5 seconds
   });
 
-  const candidates = data?.candidates || [];
+  const candidates = Array.isArray(data) ? data : data?.candidates || [];
   const total = candidates.length;
   const newCount = candidates.filter((c: any) => (c.status || '').toLowerCase() === 'new').length;
   const shortlisted = candidates.filter((c: any) => (c.status || '').toLowerCase() === 'shortlisted').length;

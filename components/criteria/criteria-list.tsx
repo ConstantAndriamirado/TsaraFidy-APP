@@ -42,6 +42,13 @@ export function CriteriaList() {
   const [name, setName] = useState('')
   const [criteriaType, setCriteriaType] = useState('skill')
   const [weight, setWeight] = useState(1)
+
+  const formatDisplayWeight = (w: number | undefined | null) => {
+    if (w === undefined || w === null) return '0'
+    // convert 0-10 scale to 0-1 display, trim trailing zeros
+    const v = Number((w / 10).toFixed(2))
+    return String(v)
+  }
   const [posteId, setPosteId] = useState('')
 
   const handleAdd = async (e: React.FormEvent) => {
@@ -158,7 +165,7 @@ export function CriteriaList() {
                 </select>
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="weight">Poids ({weight})</Label>
+                <Label htmlFor="weight">Poids ({formatDisplayWeight(weight)})</Label>
                 <input
                   id="weight"
                   type="range"
@@ -203,7 +210,7 @@ export function CriteriaList() {
                     <h3 className="font-semibold text-lg">{criterion.name}</h3>
                     <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
                       <span>Type: {criteriaTypes.find((t) => t.value === criterion.criteria_type)?.label}</span>
-                      <span>Poids: {criterion.weight}</span>
+                      <span>Poids: {formatDisplayWeight(criterion.weight)}</span>
                       {criterion.poste_id && (
                         <span>Poste: {postes.find((poste) => poste.id === criterion.poste_id)?.titre || '—'}</span>
                       )}

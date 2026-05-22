@@ -88,6 +88,9 @@
     "postes": "Postes",
     "settings": "Paramètres"
   },
+  "criteria": {
+    "delete": "Supprimer le critère"
+  },
   "postes": {
     "title": "Postes",
     "add_poste": "Ajouter un poste",
@@ -119,5 +122,4 @@
     "subscription": "Abonnement",
     "security": "Sécurité",
     "save_changes": "Enregistrer les modifications"
-  }
 }
