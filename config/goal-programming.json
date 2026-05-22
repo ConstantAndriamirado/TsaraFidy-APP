@@ -1,0 +1,65 @@
+{
+  "description": "Configuration du Goal Programming - Modifiez ces valeurs pour changer le comportement d'optimisation",
+  "algorithm": {
+    "experienceWeight": 0.4,
+    "ratingWeight": 0.6,
+    "maxExperienceYears": 20,
+    "maxRatingScore": 5,
+    "shortlistedBonus": 0.15,
+    "rejectedPenalty": 0
+  },
+  "presets": {
+    "experienceFirst": {
+      "description": "Favorise les candidats avec beaucoup d'expérience",
+      "experienceWeight": 0.7,
+      "ratingWeight": 0.3,
+      "maxExperienceYears": 30,
+      "maxRatingScore": 5,
+      "shortlistedBonus": 0.1,
+      "rejectedPenalty": 0
+    },
+    "ratingFirst": {
+      "description": "Favorise les candidats avec des notes élevées",
+      "experienceWeight": 0.3,
+      "ratingWeight": 0.7,
+      "maxExperienceYears": 20,
+      "maxRatingScore": 5,
+      "shortlistedBonus": 0.2,
+      "rejectedPenalty": 0.5
+    },
+    "balanced": {
+      "description": "Équilibre entre expérience et note",
+      "experienceWeight": 0.5,
+      "ratingWeight": 0.5,
+      "maxExperienceYears": 20,
+      "maxRatingScore": 5,
+      "shortlistedBonus": 0.15,
+      "rejectedPenalty": 0.3
+    },
+    "strictShortlist": {
+      "description": "Pénalise fortement les non-présélectionnés",
+      "experienceWeight": 0.4,
+      "ratingWeight": 0.6,
+      "maxExperienceYears": 20,
+      "maxRatingScore": 5,
+      "shortlistedBonus": 0.3,
+      "rejectedPenalty": 0.8
+    }
+  },
+  "notes": {
+    "experienceWeight": "Poids donné aux années d'expérience (0-1). Plus élevé = plus important",
+    "ratingWeight": "Poids donné à la note (0-1). Plus élevé = plus important",
+    "maxExperienceYears": "Nombre d'années considéré comme le maximum pour la normalisation",
+    "maxRatingScore": "Note maximale pour la normalisation (généralement 5 pour 5 étoiles)",
+    "shortlistedBonus": "Bonus appliqué aux candidats présélectionnés (0.15 = +15 points)",
+    "rejectedPenalty": "Pénalité appliquée aux candidats rejetés (0.5 = -50% du score)"
+  },
+  "guide": {
+    "1_understand_weights": "La somme de experienceWeight + ratingWeight devrait égaler 1.0 pour une distribution équitable",
+    "2_interpretation": "experienceWeight: 0.4 signifie que 40% du score vient de l'expérience, 60% de la note",
+    "3_bonuses": "shortlistedBonus: 0.15 ajoute 15 points au score final pour les présélectionnés",
+    "4_penalties": "rejectedPenalty: 0.5 réduit le score de 50% pour les candidats rejetés",
+    "5_normalization": "maxExperienceYears et maxRatingScore sont utilisés pour normaliser les scores à 0-100",
+    "6_example": "Si un candidat a 10 ans d'expérience (max 20) et une note de 4/5: score_exp=50, score_note=80, final=(50*0.4)+(80*0.6)=68"
+  }
+}
