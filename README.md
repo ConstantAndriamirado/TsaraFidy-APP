@@ -25,14 +25,14 @@ TsaraFIDY est une plateforme SaaS de recrutement alimentée par l'intelligence a
 
 1. **Clonez le projet**
 ```bash
-git clone <repository-url>
+git clone https://github.com/ConstantAndriamirado/TsaraFidy-APP.git
 cd tsarafidy
 ```
 
 2. **Configurez les variables d'environnement**
 ```bash
 cp .env.example .env.local
-# Modifiez .env.local avec vos clés Supabase
+# Modifiez .env.local avec vos propres clés Supabase
 ```
 
 3. **Lancez l'application**
